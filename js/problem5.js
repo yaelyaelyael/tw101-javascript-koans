@@ -34,3 +34,48 @@
  */
 
 // Write your JavaScript here
+
+
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function fixWording(wordArray) {
+
+    var wordCount = 0;
+    var oldAd1 = " ";
+    var oldAd2 = " ";
+    var oldAd3 = " ";
+    var newAd = " ";
+
+    for (var i = 0; i < wordArray.length; i++) {
+        for (var j = 0; j < wordArray[i].length; j++) {
+            wordCount++;
+            if (i == 0) {oldAd1 += wordArray[i][j] + " ";}
+            else if (i == 1) {oldAd2 += wordArray[i][j] + " "; }
+            else if (i == 2) {oldAd3 += wordArray[i][j] + " "; }
+        }
+    }
+
+    for (var l = 0; l < wordArray.length; l++) {
+        if (l == 1) {
+            for (var m = wordArray[l].length-1; m >= 0; m--) {
+                newAd += wordArray[1][m] + " ";
+            }
+        }
+
+        else if (l != 1) {
+            for (var n = 0; n < wordArray[l].length; n++) {
+            newAd += wordArray[l][n] + " ";
+            }
+        }
+
+    }
+
+    changeElementText("#oldAd1", oldAd1);
+    changeElementText("#oldAd2", oldAd2);
+    changeElementText("#oldAd3", oldAd3);
+    changeElementText("#newAd", newAd);
+    changeElementText("#wordCount", wordCount);
+
+}

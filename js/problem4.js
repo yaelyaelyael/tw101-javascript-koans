@@ -26,4 +26,31 @@
 
 */
 
-// Write your JavaScript here
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function checkValidDenomination(num) {
+    if (num == 0 || num == 10 || num == 20 || num == 50 || num == 100 || num == 500 || num == 1000){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function countMoney(notes) {
+    changeElementText("#notes", notes);
+    var total = 0;
+
+    for (var i = 0; i < notes.length; i++) {
+        if (checkValidDenomination(notes[i]) == true) {
+            total = total + notes[i];
+        }
+        else {
+            break;
+        }
+    }
+
+    changeElementText("#total", total);
+}
